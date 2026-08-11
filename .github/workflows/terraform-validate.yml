@@ -52,14 +52,6 @@ jobs:
     - name: Terraform Fmt
       run: terraform fmt -check -recursive -diff
 
-    - name: Debug token presence
-      run: |
-        if [ -z "$TF_TOKEN_app_terraform_io" ]; then
-          echo "TOKEN IS EMPTY"
-        else
-          echo "TOKEN length: ${#TF_TOKEN_app_terraform_io}"
-        fi
-
     - name: Terraform Init
       run: terraform init
   

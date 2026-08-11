@@ -12,12 +12,11 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  = "app.terraform.io/1ntact/resource_group_storage/azurerm"
-  version = "1.0.1"
+  source = "./modules/resource_group_storage"
 
-  resource_group_name      = "my-resource-group"
-  location                 = "West Europe"
-  storage_account_name     = "intactstorage20260811"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+  storage_account_name     = var.storage_account_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
